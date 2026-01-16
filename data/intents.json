@@ -1,0 +1,54 @@
+[
+  {
+    "id": "intent_password_recovery",
+    "label": "Password Recovery",
+    "volume": 143,
+    "failureRate": 0.78,
+    "decision": "FIX_SEARCH",
+    "confidence": 0.86,
+    "topRecommendation": "Add synonyms: reset\u2192recover, login\u2192sign in; Add best bet for Password Reset Guide",
+    "status": "NEW",
+    "updatedAt": "2026-01-14T18:30:00Z",
+    "language": "en",
+    "siteSection": "Support"
+  },
+  {
+    "id": "intent_refund_policy",
+    "label": "Refund Policy",
+    "volume": 89,
+    "failureRate": 0.92,
+    "decision": "CREATE_CONTENT",
+    "confidence": 0.83,
+    "topRecommendation": "Create FAQ: Refund Policy (high demand, no matching content)",
+    "status": "NEW",
+    "updatedAt": "2026-01-14T18:30:00Z",
+    "language": "en",
+    "siteSection": "Commerce"
+  },
+  {
+    "id": "intent_pricing_tiers",
+    "label": "Pricing Tiers",
+    "volume": 57,
+    "failureRate": 0.61,
+    "decision": "FIX_SEARCH",
+    "confidence": 0.79,
+    "topRecommendation": "Boost Pricing page for pricing-related intent; Add best bet",
+    "status": "NEW",
+    "updatedAt": "2026-01-14T18:30:00Z",
+    "language": "en",
+    "siteSection": "Marketing"
+  },
+  {
+    "id": "intent_api_limits",
+    "label": "API Rate Limits",
+    "volume": 32,
+    "failureRate": 0.74,
+    "decision": "CREATE_CONTENT",
+    "confidence": 0.76,
+    "topRecommendation": "Create guide: API Rate Limits & Throttling",
+    "status": "NEW",
+    "updatedAt": "2026-01-14T18:30:00Z",
+    "language": "en",
+    "siteSection": "Developers"
+  }
+]
