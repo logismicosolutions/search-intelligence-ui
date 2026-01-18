@@ -1,5 +1,38 @@
 [
   {
+    "id": "act_2e8034",
+    "intentId": "intent_password_recovery",
+    "intentLabel": "Password Recovery",
+    "decision": "FIX_SEARCH",
+    "type": "SYNONYMS",
+    "title": "Tune search: Password Recovery",
+    "owner": "Search Admin",
+    "status": "NEW",
+    "createdAt": "2026-01-17T12:11:08.045Z"
+  },
+  {
+    "id": "act_ab341c",
+    "intentId": "intent_password_recovery",
+    "intentLabel": "Password Recovery",
+    "decision": "FIX_SEARCH",
+    "type": "SYNONYMS",
+    "title": "Tune search: Password Recovery",
+    "owner": "Search Admin",
+    "status": "NEW",
+    "createdAt": "2026-01-16T12:12:17.356Z"
+  },
+  {
+    "id": "act_910e86",
+    "intentId": "intent_password_recovery",
+    "intentLabel": "Password Recovery",
+    "decision": "FIX_SEARCH",
+    "type": "SYNONYMS",
+    "title": "Tune search: Password Recovery",
+    "owner": "Search Admin",
+    "status": "NEW",
+    "createdAt": "2026-01-16T12:12:16.028Z"
+  },
+  {
     "id": "act_e15345",
     "intentId": "intent_refund_policy",
     "intentLabel": "Refund Policy",
@@ -18,7 +51,7 @@
     "type": "SYNONYMS",
     "title": "Tune search: Password Recovery",
     "owner": "Search Admin",
-    "status": "NEW",
+    "status": "CLOSED",
     "createdAt": "2026-01-16T06:06:55.164Z"
   },
   {

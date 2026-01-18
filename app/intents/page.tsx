@@ -23,7 +23,7 @@ export default function IntentExplorerPage() {
           <div style={{ fontWeight: 700, marginBottom: 10 }}>Intent Clusters</div>
           <IntentTable rows={intents} compact onRowClick={() => {}} />
         </div>
-        <div className="card">
+        {/* <div className="card">
           <div style={{ fontWeight: 700, marginBottom: 6 }}>Cluster Map (Demo)</div>
           <div className="subtle">In MVP, show a simple bubble chart / 2D map. Here we show a placeholder.</div>
           <div style={{ height: 16 }} />
@@ -37,7 +37,7 @@ export default function IntentExplorerPage() {
           }}>
             <div className="subtle">(Add bubble chart later)</div>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

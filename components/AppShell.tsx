@@ -8,7 +8,7 @@ import clsx from 'clsx';
 const nav = [
   { href: '/', label: 'Overview' },
   { href: '/intents', label: 'Intent Explorer' },
-  { href: '/actions', label: 'Action Center' },
+  // { href: '/actions', label: 'Action Center' },
   { href: '/search-fix', label: 'Search Fix Studio' },
   { href: '/content-gap', label: 'Content Gap Studio' },
   { href: '/pipeline', label: 'Pipeline & Data' },
@@ -31,7 +31,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
           }} />
           <div>
             <div style={{ fontWeight: 800, letterSpacing: 0.2 }}>Search Intelligence AI</div>
-            <div className="subtle" style={{ fontSize: 12 }}>Hackathon UI</div>
+            <div className="subtle" style={{ fontSize: 12 }}>By Core Visionaries</div>
           </div>
         </div>
 

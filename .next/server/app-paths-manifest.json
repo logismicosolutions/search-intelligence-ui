@@ -1,10 +1,7 @@
 {
   "/intents/page": "app/intents/page.js",
-  "/actions/page": "app/actions/page.js",
-  "/pipeline/page": "app/pipeline/page.js",
   "/search-fix/page": "app/search-fix/page.js",
-  "/page": "app/page.js",
-  "/api/intents/route": "app/api/intents/route.js",
+  "/pipeline/page": "app/pipeline/page.js",
   "/content-gap/page": "app/content-gap/page.js",
-  "/api/intents/[intentId]/route": "app/api/intents/[intentId]/route.js"
+  "/page": "app/page.js"
 }
