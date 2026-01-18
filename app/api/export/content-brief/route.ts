@@ -19,8 +19,7 @@
     lines.push('## Rationale');
     lines.push(brief.rationale || '');
     lines.push('');
-    return lines.join('
-');
+    return lines.join('\n');
   }
 
   export async function GET(req: Request) {
