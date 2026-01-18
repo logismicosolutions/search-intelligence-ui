@@ -96,7 +96,7 @@ export function IntentTable({
 
   const tableStyle: React.CSSProperties = {
     width: '100%',
-    tableLayout: 'Auto',
+    tableLayout: 'auto',
   };
 
   // Apply same padding to ALL header/body cells
@@ -115,6 +115,7 @@ export function IntentTable({
     overflow: 'hidden',
     textOverflow: 'ellipsis',
     whiteSpace: 'nowrap',
+    width: 'auto',
   };
 
   const recommendationHeaderStyle: React.CSSProperties = {

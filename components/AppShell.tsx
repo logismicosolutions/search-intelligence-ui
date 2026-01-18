@@ -1,14 +1,15 @@
 
 'use client';
 
+import * as React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import clsx from 'clsx';
+import { ThemeToggle } from '@/components/ThemeToggle';
 
 const nav = [
   { href: '/', label: 'Overview' },
   { href: '/intents', label: 'Intent Explorer' },
-  // { href: '/actions', label: 'Action Center' },
   { href: '/search-fix', label: 'Search Fix Studio' },
   { href: '/content-gap', label: 'Content Gap Studio' },
   { href: '/pipeline', label: 'Pipeline & Data' },
@@ -18,26 +19,61 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
 
   return (
-    <div style={{ display: 'grid', gridTemplateColumns: '260px 1fr', minHeight: '100vh' }}>
-      <aside style={{
-        padding: 16,
-        borderRight: '1px solid rgba(255,255,255,0.10)',
-        background: 'linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02))'
-      }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 16 }}>
-          <div style={{
-            width: 36, height: 36, borderRadius: 10,
-            background: 'linear-gradient(135deg, rgba(106,169,255,0.8), rgba(177,140,255,0.7))'
-          }} />
-          <div>
-            <div style={{ fontWeight: 800, letterSpacing: 0.2 }}>Search Intelligence AI</div>
-            <div className="subtle" style={{ fontSize: 12 }}>By Core Visionaries</div>
+    <div
+      style={{
+        display: 'grid',
+        gridTemplateColumns: '260px 1fr',
+        minHeight: '100vh',
+        background: 'var(--bg)',
+        color: 'var(--text)',
+      }}
+    >
+      {/* Sidebar */}
+      <aside
+        style={{
+          padding: 16,
+          borderRight: '1px solid var(--border)',
+          background: 'var(--panel2)',
+        }}
+      >
+        {/* Brand header + Theme Toggle */}
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'flex-start',
+            justifyContent: 'space-between',
+            gap: 10,
+            marginBottom: 16,
+          }}
+        >
+          <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+            <div
+              style={{
+                width: 36,
+                height: 36,
+                borderRadius: 10,
+                background: 'linear-gradient(135deg, var(--primary), var(--accent))',
+              }}
+            />
+            <div>
+              <div style={{ fontWeight: 800, letterSpacing: 0.2 }}>Search Intelligence AI</div>
+              <div className="subtle" style={{ fontSize: 12 }}>
+                By Core Visionaries
+              </div>
+            </div>
+          </div>
+
+          {/* Toggle sits top-right */}
+          <div style={{ marginTop: 2 }}>
+            <ThemeToggle />
           </div>
         </div>
 
-        <nav style={{ display: 'grid', gap: 6 }}>
+        {/* Navigation */}
+        <nav style={{ display: 'grid', gap: 8 }}>
           {nav.map(item => {
             const active = pathname === item.href;
+
             return (
               <Link
                 key={item.href}
@@ -46,9 +82,14 @@ export function AppShell({ children }: { children: React.ReactNode }) {
                 style={{
                   padding: '10px 12px',
                   borderRadius: 12,
-                  border: active ? '1px solid rgba(106,169,255,0.55)' : '1px solid rgba(255,255,255,0.10)',
-                  background: active ? 'rgba(106,169,255,0.10)' : 'rgba(255,255,255,0.03)',
-                  fontWeight: 650
+                  border: active
+                    ? '1px solid color-mix(in srgb, var(--primary) 45%, var(--border))'
+                    : '1px solid var(--border)',
+                  background: active
+                    ? 'color-mix(in srgb, var(--primary) 12%, var(--panel))'
+                    : 'var(--panel)',
+                  fontWeight: 650,
+                  display: 'block',
                 }}
               >
                 {item.label}
@@ -57,19 +98,23 @@ export function AppShell({ children }: { children: React.ReactNode }) {
           })}
         </nav>
 
+        {/* Tips card */}
         <div style={{ marginTop: 16 }} className="card">
           <div style={{ fontWeight: 700 }}>Demo Tips</div>
-          <div className="subtle" style={{ fontSize: 12, marginTop: 6 }}>
+          <div className="subtle" style={{ fontSize: 12, marginTop: 6, lineHeight: 1.55 }}>
             • Click “Run Analysis” on Overview
-
+            <br />
             • Open an intent row → explainability
-
+            <br />
             • Export JSON/Markdown from studios
           </div>
         </div>
       </aside>
 
-      <main>{children}</main>
+      {/* Main content */}
+      <main style={{ minWidth: 0 }}>
+        <div className="container">{children}</div>
+      </main>
     </div>
   );
 }

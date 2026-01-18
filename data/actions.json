@@ -1,5 +1,27 @@
 [
   {
+    "id": "act_f24992",
+    "intentId": "intent_password_recovery",
+    "intentLabel": "Password Recovery",
+    "decision": "FIX_SEARCH",
+    "type": "SYNONYMS",
+    "title": "Tune search: Password Recovery",
+    "owner": "Search Admin",
+    "status": "NEW",
+    "createdAt": "2026-01-17T15:43:07.768Z"
+  },
+  {
+    "id": "act_c55b7a",
+    "intentId": "intent_password_recovery",
+    "intentLabel": "Password Recovery",
+    "decision": "FIX_SEARCH",
+    "type": "SYNONYMS",
+    "title": "Tune search: Password Recovery",
+    "owner": "Search Admin",
+    "status": "NEW",
+    "createdAt": "2026-01-17T13:58:15.384Z"
+  },
+  {
     "id": "act_2e8034",
     "intentId": "intent_password_recovery",
     "intentLabel": "Password Recovery",

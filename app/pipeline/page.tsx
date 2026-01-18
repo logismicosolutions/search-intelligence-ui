@@ -5,6 +5,7 @@ import { useMemo, useState } from 'react';
 import { Button, ProgressBar } from '@fluentui/react-components';
 import { ArrowSync24Regular } from '@fluentui/react-icons';
 
+
 type Step = { name: string; done: boolean };
 
 const baseSteps = [

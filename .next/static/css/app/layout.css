@@ -2,54 +2,191 @@
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[12].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[12].use[3]!./app/globals.css ***!
   \*************************************************************************************************************************************************************************************************************************************************************/
 
+/* ===========================
+   Sitecore Light + Dark Theme
+   Toggle by setting:
+   <html data-theme="light"> or <html data-theme="dark">
+   =========================== */
+
+/* ---------- LIGHT (default) ---------- */
 :root {
-  --bg: #0b1220;
-  --panel: #0f1a2d;
-  --panel2: #101f36;
-  --text: #e8eefc;
-  --muted: #a9b6d5;
-  --border: rgba(255,255,255,0.10);
-  --accent: #6aa9ff;
-  --purple: #b18cff;
-  --good: #4ade80;
-  --warn: #fbbf24;
-  --bad: #fb7185;
+  /* Brand / UI palette */
+  --accent: #eb001a;                 /* Sitecore Deep Red [1](https://www.brandcolorcode.com/sitecore) */
+  --primary: #5548d9;                /* Sitecore Search UI primary-main [2](https://doc.sitecore.com/search/en/developers/search-js-sdk-for-react/colors.html) */
+  --primaryLight: #eeecfb;           /* primary-light [2](https://doc.sitecore.com/search/en/developers/search-js-sdk-for-react/colors.html) */
+  --secondary: #ff3d00;              /* secondary-main [2](https://doc.sitecore.com/search/en/developers/search-js-sdk-for-react/colors.html) */
+
+  /* Surfaces */
+  --bg: #ffffff;
+  --panel: #ffffff;
+  --panel2: #f5f5f5;                 /* grey-100 [2](https://doc.sitecore.com/search/en/developers/search-js-sdk-for-react/colors.html) */
+
+  /* Text */
+  --text: rgba(0, 0, 0, 0.87);       /* text-primary [2](https://doc.sitecore.com/search/en/developers/search-js-sdk-for-react/colors.html) */
+  --muted: rgba(0, 0, 0, 0.60);      /* text-secondary [2](https://doc.sitecore.com/search/en/developers/search-js-sdk-for-react/colors.html) */
+
+  /* Borders & shadows */
+  --border: #dddddd;                 /* grey-300 [2](https://doc.sitecore.com/search/en/developers/search-js-sdk-for-react/colors.html) */
+  --shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+
+  /* Semantic */
+  --good: #2e7d32;                   /* success-main [2](https://doc.sitecore.com/search/en/developers/search-js-sdk-for-react/colors.html) */
+  --warn: #ed6c02;                   /* warning-main [2](https://doc.sitecore.com/search/en/developers/search-js-sdk-for-react/colors.html) */
+  --bad: #d32f2f;                    /* error-main [2](https://doc.sitecore.com/search/en/developers/search-js-sdk-for-react/colors.html) */
+
+  /* Background accents */
+  --pageGlowA: var(--primaryLight);
+  --pageGlowB: rgba(235, 0, 26, 0.06); /* subtle red tint [1](https://www.brandcolorcode.com/sitecore) */
+
+  /* Pill backgrounds */
+  --pillBg: rgba(0,0,0,0.03);
 }
+
+/* ---------- DARK (override) ---------- */
+html[data-theme="dark"] {
+  /* Keep brand colors consistent */
+  --accent: #eb001a;                 /* Deep Red [1](https://www.brandcolorcode.com/sitecore) */
+  --primary: #5548d9;                /* primary-main [2](https://doc.sitecore.com/search/en/developers/search-js-sdk-for-react/colors.html) */
+  --secondary: #ff3d00;              /* secondary-main [2](https://doc.sitecore.com/search/en/developers/search-js-sdk-for-react/colors.html) */
+
+  /* Dark surfaces (Sitecore-like “reverse” UI) [3](https://www.sitecore.com/company/brand-guidelines) */
+  --bg: #0b0c10;
+  --panel: #11131a;
+  --panel2: #161a23;
+
+  /* Text */
+  --text: rgba(255, 255, 255, 0.92);
+  --muted: rgba(255, 255, 255, 0.68);
+
+  /* Borders & shadows */
+  --border: rgba(255, 255, 255, 0.12);
+  --shadow: 0 12px 34px rgba(0, 0, 0, 0.45);
+
+  /* Semantic (still readable on dark) */
+  --good: #4caf50;                   /* success-light in Search UI palette [2](https://doc.sitecore.com/search/en/developers/search-js-sdk-for-react/colors.html) */
+  --warn: #ff9800;                   /* warning-light [2](https://doc.sitecore.com/search/en/developers/search-js-sdk-for-react/colors.html) */
+  --bad: #ef5350;                    /* error-light [2](https://doc.sitecore.com/search/en/developers/search-js-sdk-for-react/colors.html) */
+
+  /* Background accents */
+  --pageGlowA: rgba(85, 72, 217, 0.22);  /* primary tint [2](https://doc.sitecore.com/search/en/developers/search-js-sdk-for-react/colors.html) */
+  --pageGlowB: rgba(235, 0, 26, 0.12);   /* red tint [1](https://www.brandcolorcode.com/sitecore) */
+
+  /* Pill backgrounds */
+  --pillBg: rgba(255,255,255,0.06);
+}
+
+/* Optional: If user has system dark preference and you haven't set data-theme yet */
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme]) {
+    /* fallback to dark */
+    --bg: #0b0c10;
+    --panel: #11131a;
+    --panel2: #161a23;
+    --text: rgba(255, 255, 255, 0.92);
+    --muted: rgba(255, 255, 255, 0.68);
+    --border: rgba(255, 255, 255, 0.12);
+    --shadow: 0 12px 34px rgba(0, 0, 0, 0.45);
+    --pillBg: rgba(255,255,255,0.06);
+    --pageGlowA: rgba(85, 72, 217, 0.22); /* [2](https://doc.sitecore.com/search/en/developers/search-js-sdk-for-react/colors.html) */
+    --pageGlowB: rgba(235, 0, 26, 0.12);  /* [1](https://www.brandcolorcode.com/sitecore) */
+  }
+}
+
 html, body { height: 100%; }
+
 body {
   margin: 0;
-  background: radial-gradient(1200px 800px at 10% 0%, #132a55 0%, var(--bg) 45%, #070b14 100%);
   color: var(--text);
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  background:
+    radial-gradient(900px 520px at 12% 0%, var(--pageGlowA) 0%, transparent 55%),
+    radial-gradient(900px 520px at 90% 10%, var(--pageGlowB) 0%, transparent 55%),
+    var(--bg);
+
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial,
+    "Apple Color Emoji", "Segoe UI Emoji";
 }
+
 a { color: inherit; text-decoration: none; }
+
 .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
-.pageTitle { font-size: 22px; font-weight: 700; margin: 4px 0 16px; }
+
+.pageTitle {
+  font-size: 22px;
+  font-weight: 800;
+  margin: 4px 0 16px;
+  letter-spacing: -0.2px;
+}
+
 .subtle { color: var(--muted); }
+
+/* Cards */
 .card {
-  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+  background: linear-gradient(180deg,
+    color-mix(in srgb, var(--panel) 92%, transparent),
+    var(--panel)
+  );
   border: 1px solid var(--border);
   border-radius: 14px;
   padding: 14px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  box-shadow: var(--shadow);
 }
+
+/* Active card highlight (uses Sitecore deep red) [1](https://www.brandcolorcode.com/sitecore) */
+.card--active {
+  border-color: color-mix(in srgb, var(--accent) 55%, var(--border));
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 18%, transparent), var(--shadow);
+}
+
+/* Grid */
 .grid { display: grid; grid-gap: 14px; gap: 14px; }
 .grid.kpis { grid-template-columns: repeat(6, minmax(0, 1fr)); }
 @media (max-width: 1100px) { .grid.kpis { grid-template-columns: repeat(3, 1fr); } }
 @media (max-width: 700px) { .grid.kpis { grid-template-columns: repeat(2, 1fr); } }
+
+/* Pills */
 .pill {
-  display: inline-flex; align-items: center; gap: 8px;
-  padding: 4px 10px; border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 4px 10px;
+  border-radius: 999px;
+
   border: 1px solid var(--border);
-  background: rgba(255,255,255,0.04);
+  background: var(--pillBg);
+
   font-size: 12px;
 }
-.pill.fix { border-color: rgba(106,169,255,0.4); color: #cfe1ff; }
-.pill.gap { border-color: rgba(177,140,255,0.5); color: #efe5ff; }
-.pill.new { border-color: rgba(251,191,36,0.45); }
-.pill.closed { border-color: rgba(74,222,128,0.45); }
 
-/* Fluent UI tweaks */
-.fui-DrawerBody { background: rgba(10,16,30,0.85) !important; }
-.fui-DrawerHeader { background: rgba(10,16,30,0.85) !important; }
+/* Decision pills (primary & secondary palette) [2](https://doc.sitecore.com/search/en/developers/search-js-sdk-for-react/colors.html) */
+.pill.fix {
+  border-color: color-mix(in srgb, var(--primary) 38%, var(--border));
+  background: color-mix(in srgb, var(--primary) 10%, transparent);
+}
+
+.pill.gap {
+  border-color: color-mix(in srgb, var(--secondary) 38%, var(--border));
+  background: color-mix(in srgb, var(--secondary) 10%, transparent);
+}
+
+/* Status pills (semantic palette) [2](https://doc.sitecore.com/search/en/developers/search-js-sdk-for-react/colors.html) */
+.pill.new {
+  border-color: color-mix(in srgb, var(--warn) 45%, var(--border));
+  background: color-mix(in srgb, var(--warn) 12%, transparent);
+}
+.pill.closed {
+  border-color: color-mix(in srgb, var(--good) 45%, var(--border));
+  background: color-mix(in srgb, var(--good) 12%, transparent);
+}
+
+/* Fluent UI Drawer surfaces follow theme variables */
+.fui-DrawerBody {
+  background: var(--panel) !important;
+  color: var(--text) !important;
+}
+.fui-DrawerHeader {
+  background: var(--panel) !important;
+  color: var(--text) !important;
+  border-bottom: 1px solid var(--border) !important;
+}
 
